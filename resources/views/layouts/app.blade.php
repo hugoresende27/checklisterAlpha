@@ -94,8 +94,57 @@
 
 <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@3.4.0/dist/css/coreui.min.css" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" integrity="sha512-n+g8P11K/4RFlXnx2/RW1EZK25iYgolW6Qn7I0F96KxJibwATH3OoVCQPh/hzlc4dWAwplglKX8IVNVMWUUdsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
 
+<style type="text/css">/* Chart.js */
+  /*
+   * DOM element rendering detection
+   * https://davidwalsh.name/detect-node-insertion
+   */
+  @keyframes chartjs-render-animation {
+    from { opacity: 0.99; }
+    to { opacity: 1; }
+  }
+  
+  .chartjs-render-monitor {
+    animation: chartjs-render-animation 0.001s;
+  }
+  
+  /*
+   * DOM element resizing detection
+   * https://github.com/marcj/css-element-queries
+   */
+  .chartjs-size-monitor,
+  .chartjs-size-monitor-expand,
+  .chartjs-size-monitor-shrink {
+    position: absolute;
+    direction: ltr;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+  }
+  
+  .chartjs-size-monitor-expand > div {
+    position: absolute;
+    width: 1000000px;
+    height: 1000000px;
+    left: 0;
+    top: 0;
+  }
+  
+  .chartjs-size-monitor-shrink > div {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+  }
+  </style>
 
 <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
@@ -103,7 +152,7 @@
     <body class="c-app">
 
 
-         <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
       <div class="c-sidebar-brand d-lg-down-none">
         <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
           <use xlink:href="assets/brand/coreui.svg#full"></use>
@@ -316,10 +365,15 @@
 
     <!-- Optional JavaScript -->
     <!-- Popper.js first, then CoreUI JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js" integrity="sha512-yUNtg0k40IvRQNR20bJ4oH6QeQ/mgs9Lsa6V+3qxTj58u2r+JiAYOhOW0o+ijuMmqCtCEg7LZRA+T4t84/ayVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+    
     <script src="https://unpkg.com/@popperjs/coreui@3.4.0"></script>
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
 
+    
 
     </body>
 </html>
